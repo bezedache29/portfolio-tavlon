@@ -40,11 +40,6 @@ class ProjectCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->addColumn([
-            'label' => 'Image',
-            'type' => 'image',
-            'name' => 'image',
-        ]);
-        $this->crud->addColumn([
             'label' => 'Nom',
             'type' => 'text',
             'name' => 'name',
@@ -103,11 +98,6 @@ class ProjectCrudController extends CrudController
             'label' => "Description du projet"
         ]);
         $this->crud->addField([
-            'name' => 'image',
-            'type' => 'text',
-            'label' => "Image du projet"
-        ]);
-        $this->crud->addField([
             'name' => 'url',
             'type' => 'text',
             'label' => "Lien de la vidéo du projet"
@@ -148,11 +138,6 @@ class ProjectCrudController extends CrudController
 
     protected function setupShowOperation()
     {
-        $this->crud->addColumn([
-            'label' => 'Image',
-            'type' => 'text',
-            'name' => 'image',
-        ]);
         $this->crud->addColumn([
             'label' => 'Nom',
             'type' => 'text',
