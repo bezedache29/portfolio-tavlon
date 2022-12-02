@@ -27,7 +27,6 @@ class ProjectRequest extends FormRequest
         return [
             'name' => 'required|min:5|max:255|string',
             'description' => 'required|min:10|max:500|string',
-            'image' => 'nullable|string',
             'url' => 'required|min:5|max:255|string',
             'date' => 'required|date',
         ];
@@ -61,7 +60,6 @@ class ProjectRequest extends FormRequest
             'description.string' => 'La description du projet doit être une chaine de caractères',
             'description.min' => 'La description du projet doit faire :min caratères minimum',
             'description.max' => 'La description du projet doit faire :max caratères maximum',
-            'image.string' => 'L\'image du projet doit être une chaine de caractères',
             'url.required' => 'Le lien de la vidéo du projet est obligatoire',
             'url.string' => 'Le lien de la vidéo du projet doit être une chaine de caractères',
             'url.min' => 'Le lien de la vidéo du projet doit faire :min caratères minimum',
