@@ -45,6 +45,14 @@ class CategoryCrudController extends CrudController
             'name' => 'name'
         ]);
 
+        $this->crud->query->withCount('projects');
+        $this->crud->addColumn([
+            'name'      => 'projects_count',
+            'type'      => 'text',
+            'label'     => 'Nombre Projets',
+            'suffix'    => ' utilisation(s)',
+        ]);
+
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -94,6 +102,14 @@ class CategoryCrudController extends CrudController
             'label' => 'Nom',
             'type' => 'text',
             'name' => 'name'
+        ]);
+
+        $this->crud->query->withCount('projects');
+        $this->crud->addColumn([
+            'name'      => 'projects_count',
+            'type'      => 'text',
+            'label'     => 'Nombre Projets',
+            'suffix'    => ' utilisation(s)',
         ]);
     }
 }

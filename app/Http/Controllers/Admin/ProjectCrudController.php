@@ -28,7 +28,7 @@ class ProjectCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Project::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/project');
-        CRUD::setEntityNameStrings('project', 'projects');
+        CRUD::setEntityNameStrings('projet', 'projets');
     }
 
     /**
@@ -39,40 +39,38 @@ class ProjectCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('name');
-        CRUD::column('description');
-        CRUD::column('image');
-        CRUD::column('url');
-        CRUD::column('date');
-
+        $this->crud->addColumn([
+            'label' => 'Image',
+            'type' => 'image',
+            'name' => 'image',
+        ]);
         $this->crud->addColumn([
             'label' => 'Nom',
             'type' => 'text',
-            'name' => 'name'
+            'name' => 'name',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Description',
-            'type' => 'textarea',
-            'name' => 'description'
-        ]);
-
-        $this->crud->addColumn([
-            'label' => 'Image',
             'type' => 'text',
-            'name' => 'image'
+            'name' => 'description',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Lien de la vidéo',
             'type' => 'text',
-            'name' => 'url'
+            'name' => 'url',
         ]);
-
         $this->crud->addColumn([
             'label' => 'Date',
             'type' => 'date',
-            'name' => 'date'
+            'name' => 'date',
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Catégories',
+            'type' => 'select',
+            'name' => 'categories',
+            'entity' => 'categories',
+            'attribute' => 'name',
+            'model' => "App\Models\Category"
         ]);
 
         /**
@@ -118,6 +116,16 @@ class ProjectCrudController extends CrudController
             'name' => 'date',
             'type' => 'date',
             'label' => "Date du projet"
+        ]);
+        // $this->crud->removeField('categories'); // remove the original field
+        $this->crud->addField([
+            'label' => "Catégories",
+            'type' => 'select_multiple',
+            'name' => 'categories', // the method that defines the relationship in your Model
+            'entity' => 'categories', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => "App\Models\Category", // foreign key model
+            'pivot' => true,
         ]);
 
         /**
@@ -165,13 +173,13 @@ class ProjectCrudController extends CrudController
             'type' => 'date',
             'name' => 'date',
         ]);
-        // $this->crud->addColumn([
-        //     'label' => 'Catégories',
-        //     'type' => 'select',
-        //     'name' => 'categories',
-        //     'entity' => 'categories',
-        //     'attribute' => 'name',
-        //     'model' => "App\Models\Categories"
-        // ]);
+        $this->crud->addColumn([
+            'label' => 'Catégories',
+            'type' => 'select',
+            'name' => 'categories',
+            'entity' => 'categories',
+            'attribute' => 'name',
+            'model' => "App\Models\Category"
+        ]);
     }
 }
