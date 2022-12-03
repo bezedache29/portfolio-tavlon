@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite('resources/css/app.css')
-
+    @livewireStyles
     <script async defer data-domain="open.michelegera.dev" src="https://plausible.io/js/plausible.js"></script>
 </head>
 
@@ -74,65 +74,10 @@
                 passion, mon style et surtout mon univers.
             </p>
 
-            @foreach ($projects as $key => $project)
-                @if ($key % 2 != 1)
-                    <div class="flex flex-col mb-8 sm:flex-row">
-                        <div class="flex items-center mb-8 sm:w-1/2 md:w-5/12 sm:order-last">
-                            <iframe class="rounded-sm" width="500" height="315" src="{{ $project->url }}">
-                            </iframe>
-                        </div>
-                        <div class="flex flex-col justify-center mb-8 sm:w-1/2 md:w-7/12 sm:pr-16">
-                            <p
-                                class="mb-2 text-sm font-semibold leading-none text-center text-indigo-600 uppercase sm:text-left">
-                                @forelse ($project->categories as $key => $category)
-                                    {{ $category->name }}
-                                    @if ($key + 1 != count($project->categories))
-                                        -
-                                    @endif
-                                @empty
-                                    Pas de catégories
-                                @endforelse
-                            </p>
-                            <h3 class="title title-small sm:text-left md:text-4xl">
-                                {{ $project->name }}
-                            </h3>
-                            <p class="text md:text-left">
-                                {{ $project->description }}
-                            </p>
-                        </div>
-                    </div>
-                @else
-                    <div class="flex flex-col mb-8 sm:flex-row">
-                        <div class="flex items-center mb-8 sm:w-1/2 md:w-5/12">
-                            <iframe class="rounded-sm" width="500" height="315" src="{{ $project->url }}"
-                                allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen"
-                                msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen"
-                                webkitallowfullscreen="webkitallowfullscreen">
-                            </iframe>
-                        </div>
-                        <div class="flex flex-col justify-center mb-8 sm:w-1/2 md:w-7/12 sm:pl-16">
-                            <p
-                                class="mb-2 text-sm font-semibold leading-none text-center text-indigo-600 uppercase sm:text-left">
-                                @forelse ($project->categories as $key => $category)
-                                    {{ $category->name }}
-                                    @if ($key + 1 != count($project->categories))
-                                        -
-                                    @endif
-                                @empty
-                                    Pas de catégories
-                                @endforelse
-                            </p>
-                            <h3 class="title title-small sm:text-left md:text-4xl">
-                                {{ $project->name }}
-                            </h3>
-                            <p class="text md:text-left">
-                                {{ $project->description }}
-                            </p>
-                        </div>
-                    </div>
-                @endif
-            @endforeach
+            <livewire:project-listing />
+
         </div>
+
         <div class="mb-16">
             <h2 class="title sm:text-4xl md:text-5xl">Mes recommandations</h2>
             {{-- <p class="mx-auto intro sm:max-w-xl">
@@ -188,8 +133,7 @@
                 <div class="max-w-sm p-4 mx-auto md:max-w-full md:mx-0 md:w-1/2 lg:w-1/3">
                     <div class="p-8 bg-gray-800">
                         <div class="mb-8 text-indigo-600">
-                            <svg class="fill-current" width="24" height="18"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg class="fill-current" width="24" height="18" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M0 13.481c0-2.34.611-4.761 1.833-7.263C3.056 3.716 4.733 1.643 6.865 0L11 2.689C9.726 4.382 8.777 6.093 8.152 7.824c-.624 1.73-.936 3.578-.936 5.545V18H0v-4.519zm13 0c0-2.34.611-4.761 1.833-7.263 1.223-2.502 2.9-4.575 5.032-6.218L24 2.689c-1.274 1.693-2.223 3.404-2.848 5.135-.624 1.73-.936 3.578-.936 5.545V18H13v-4.519z"
                                     fill-rule="nonzero" fill="currentColor" />
@@ -256,6 +200,7 @@
             </p>
         </div>
     </div>
+    @livewireScripts
 </body>
 
 </html>
