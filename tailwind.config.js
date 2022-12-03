@@ -26,12 +26,23 @@ module.exports = {
         400: "#1cb68b",
       },
 
+      teal: {
+        100: '#ccfbf1',
+        500: '#14b8a6',
+        900: '#134e4a'
+      },
+
       indigo: {
         400: "#acadff",
         500: "#6b6dff",
         600: "#6163ff",
         700: "#5658dd",
       },
+
+      red: {
+        100: '#fee2e2',
+        500: '#ef4444'
+      }
     },
     fontSize: {
       xs: "0.75rem",

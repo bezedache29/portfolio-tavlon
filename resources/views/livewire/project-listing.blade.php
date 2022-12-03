@@ -3,7 +3,10 @@
         @if ($key % 2 != 1)
             <div class="flex flex-col mb-8 sm:flex-row">
                 <div class="flex items-center mb-8 sm:w-1/2 md:w-5/12 sm:order-last">
-                    <iframe class="rounded-sm" width="500" height="315" src="{{ $project['url'] }}">
+                    <iframe class="rounded-sm" width="500" height="315" src="{{ $project['url'] }}"
+                        allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen"
+                        msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen"
+                        webkitallowfullscreen="webkitallowfullscreen">
                     </iframe>
                 </div>
                 <div class="flex flex-col justify-center mb-8 sm:w-1/2 md:w-7/12 sm:pr-16">
