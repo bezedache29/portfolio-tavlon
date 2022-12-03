@@ -9,12 +9,42 @@
     @vite('resources/css/app.css')
     @livewireStyles
     <script async defer data-domain="open.michelegera.dev" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+    </style>
 </head>
 
 <body class="relative antialiased tracking-tight text-gray-500 bg-black font-inter">
     <div class="absolute inset-0 bg-top bg-no-repeat bg-illustration-01"></div>
     <div class="absolute inset-0 bg-center bg-no-repeat bg-illustration-02"></div>
     <div class="container relative">
+
+        <!-- Alert Messages Session Success --->
+        @if (session()->has('success'))
+            <div class="px-4 py-3 mt-5 -mb-10 text-teal-900 bg-teal-100 border-t-4 border-teal-500 rounded-b shadow-md"
+                role="alert">
+                <div class="flex">
+                    <div class="py-1"><svg class="w-6 h-6 mr-4 text-teal-500 fill-current"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path
+                                d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                        </svg></div>
+                    <div>
+                        <p class="font-bold">{{ session()->get('success') }}</p>
+                        <p class="text-sm">Merci, je reviens vers vous le plus rapidement possible.</p>
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <h1 class="px-8 mt-16 mb-4 text-5xl font-extrabold leading-tight text-center text-white xl:text-6xl">
             Sébastien <span class="text-indigo-700">Joublot</span>
         </h1>
@@ -24,7 +54,7 @@
         </p>
         <div class="flex flex-col justify-center max-w-xs mx-auto mb-12 sm:max-w-full sm:flex-row">
             <a class="w-full mb-4 whitespace-no-wrap bg-indigo-600 btn btn-tall md:w-auto hover:bg-indigo-500 sm:mr-2"
-                href="#">
+                href="#contact">
                 Me contacter
             </a>
         </div>
@@ -274,7 +304,7 @@
             </div>
         </div>
 
-        <div class="mb-16">
+        <div class="mb-16 border-b border-gray-800">
             <h2 class="title sm:text-4xl md:text-5xl">Mes recommandations</h2>
             {{-- <p class="mx-auto intro sm:max-w-xl">
                 Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper
@@ -355,78 +385,129 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-col justify-center mb-8 text-center sm:flex-row">
-            <p class="order-last mb-4 text-sm text-gray-500 sm:order-first">
-                Créé avec ❤️ par
-                <a href="https://portfolio.ripley.eu" class="text-white">Bezedache</a>. <span class="ml-3">©
-                    <a href="https://www.youtube.com/channel/UC5tWpMmzIcfA7PPzh3I2l-w" class="text-white"> Exode
-                        Effects
-                    </a>2022 - Tous droits réservés</span>
-            </p>
-        </div>
-    </div>
 
-    <div class="relative z-10 text-gray-600" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75"></div>
 
-        <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex items-end justify-center min-h-full p-4 text-center sm:items-center sm:p-0">
-                <div
-                    class="relative overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-lg">
-                    <div class="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
-                        <div class="sm:flex sm:items-start">
-                            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                <h3 class="mb-8 text-3xl font-medium leading-6 text-center text-gray-900"
-                                    id="modal-title">Formulaire
-                                    de
-                                    contact</h3>
-                                <form method="POST" action="#" class="mt-2">
-                                    <div class="mb-5">
-                                        <label for="email" class="mb-1 block text-base font-medium text-[#07074D]">
-                                            Adresse e-mail :
-                                        </label>
-                                        <input type="email" name="email" id="email"
-                                            placeholder="example@domain.com"
-                                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md" />
-                                    </div>
-                                    <div class="mb-5">
-                                        <label for="object" class="mb-1 block text-base font-medium text-[#07074D]">
-                                            Objet :
-                                        </label>
-                                        <input type="text" name="object" id="object"
-                                            placeholder="Objet du message"
-                                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md" />
-                                    </div>
-                                    <div class="mb-5">
-                                        <label for="message" class="mb-1 block text-base font-medium text-[#07074D]">
-                                            Message :
-                                        </label>
-                                        <textarea
-                                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md"
-                                            id="message" name="message" rows="5" cols="33" placeholder="Votre message ici..."></textarea>
-                                    </div>
-                                    <p class="text-sm text-gray-700">J'accepte ce site à conserver mes données
-                                        personnelles transmises via ce formulaire. Aucun exploitation commerciale ne
-                                        sera faite des données conservées.</p>
-                                </form>
-                            </div>
+        <div class="mb-16 border-b border-gray-800" id="contact">
+            <h2 class="title sm:text-4xl md:text-5xl">Formulaire de contact</h2>
+            <div class="bg-gray-800">
+                <form method="POST" action="{{ route('contact.send-email') }}" class="py-6">
+                    @csrf
+                    <div class="px-6 mt-2">
+                        <div class="mb-5">
+                            <label for="email" class="block mb-1 text-base font-medium">
+                                Adresse e-mail :
+                            </label>
+                            <input type="email" name="email" id="email" placeholder="example@domain.com"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md" />
+                            <p class="text-red-500">{{ $errors->first('email') }}</p>
                         </div>
+                        <div class="mb-5">
+                            <label for="object" class="block mb-1 text-base font-medium">
+                                Objet :
+                            </label>
+                            <input type="text" name="object" id="object" placeholder="Objet du message"
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md" />
+                            <p class="text-red-500">{{ $errors->first('email') }}</p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="block mb-1 text-base font-medium">
+                                Message :
+                            </label>
+                            <textarea
+                                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md"
+                                id="message" name="message" rows="5" cols="33" placeholder="Votre message ici..."></textarea>
+                        </div>
+                        <p class="mb-3 text-sm italic">J'accepte ce site à conserver mes données
+                            personnelles transmises via ce formulaire. Aucun exploitation commerciale ne
+                            sera faite des données conservées.</p>
+                        <p class="text-red-500">{{ $errors->first('email') }}</p>
                     </div>
-                    <div class="px-4 py-3 bg-gray-50 sm:flex sm:flex-row-reverse sm:px-6">
+                    <div class="px-4 pt-5 bg-gray-50 sm:flex sm:flex-row-reverse sm:px-6">
                         <button type="submit"
-                            class="mb-4 whitespace-no-wrap bg-indigo-600 w-100 btn btn-tall md:w-auto hover:bg-indigo-500 sm:ml-2">
+                            class="w-full whitespace-no-wrap bg-indigo-600 w-100 btn btn-tall md:w-auto hover:bg-indigo-500 sm:ml-2">
                             Envoyer
                         </button>
-                        <button type="button"
-                            class="w-full mb-4 whitespace-no-wrap bg-gray-800 btn btn-tall md:w-auto hover:bg-gray-600 sm:mr-2">Annuler</button>
-                        {{-- <button type="submit"
-                            class="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button> --}}
-
                     </div>
-                </div>
+                </form>
             </div>
+
         </div>
     </div>
+
+    <div class="flex flex-col justify-center mb-8 text-center sm:flex-row">
+        <p class="order-last mb-4 text-sm text-gray-500 sm:order-first">
+            Créé avec ❤️ par
+            <a href="https://portfolio.ripley.eu" class="text-white">Bezedache</a>. <span class="ml-3">©
+                <a href="https://www.youtube.com/channel/UC5tWpMmzIcfA7PPzh3I2l-w" class="text-white"> Exode
+                    Effects
+                </a>2022 - Tous droits réservés</span>
+        </p>
+    </div>
+
+    {{-- <div role="dialog" aria-labelledby="modal1_label" aria-modal="true" tabindex="0" x-show="isModalOpen"
+        x-on:click="isModalOpen = false; $refs.modal1_button.focus()" x-on:click.away="isModalOpen = false"
+        class="fixed top-0 left-0 flex items-center justify-center w-full h-screen">
+        <div aria-hidden="true" class="absolute top-0 left-0 w-full h-screen transition duration-300 bg-black"
+            :class="{ 'opacity-80': isModalOpen, 'opacity-0': !isModalOpen }" x-show="isModalOpen"
+            x-transition:leave="delay-150"></div>
+        <div data-modal-document x-on:click.stop="" x-show="isModalOpen"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="transform scale-50 opacity-0"
+            x-transition:enter-end="transform scale-100 opacity-100"
+            x-transition:leave="transition ease-out duration-300"
+            x-transition:leave-start="transform scale-100 opacity-100"
+            x-transition:leave-end="transform scale-50 opacity-0"
+            class="z-10 flex flex-col overflow-hidden bg-white rounded-lg shadow-lg lg:w-3/5 sm:w-4/5">
+            <div class="p-6 border-b">
+                <h2 id="modal1_label" x-ref="modal1_label"
+                    class="text-3xl font-medium leading-6 text-center text-gray-800">
+                    Formulaire de contact</h2>
+            </div>
+            <form method="POST" action="{{ route('contact.send-email') }}" class="py-6">
+                @csrf
+                <div class="px-6 mt-2">
+                    <div class="mb-5">
+                        <label for="email" class="mb-1 block text-base font-medium text-[#07074D]">
+                            Adresse e-mail :
+                        </label>
+                        <input type="email" name="email" id="email" placeholder="example@domain.com"
+                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md" />
+                    </div>
+                    <div class="mb-5">
+                        <label for="object" class="mb-1 block text-base font-medium text-[#07074D]">
+                            Objet :
+                        </label>
+                        <input type="text" name="object" id="object" placeholder="Objet du message"
+                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="mb-1 block text-base font-medium text-[#07074D]">
+                            Message :
+                        </label>
+                        <textarea
+                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md"
+                            id="message" name="message" rows="5" cols="33" placeholder="Votre message ici..."></textarea>
+                    </div>
+                    <p class="mb-3 text-sm italic text-gray-700">J'accepte ce site à conserver mes données
+                        personnelles transmises via ce formulaire. Aucun exploitation commerciale ne
+                        sera faite des données conservées.</p>
+                </div>
+                <div class="px-4 pt-5 border-t bg-gray-50 sm:flex sm:flex-row-reverse sm:px-6">
+                    <button type="submit"
+                        class="w-full whitespace-no-wrap bg-indigo-600 w-100 btn btn-tall md:w-auto hover:bg-indigo-500 sm:ml-2">
+                        Envoyer
+                    </button>
+                    <button x-on:click="isModalOpen = false" type="button"
+                        class="w-full whitespace-no-wrap bg-gray-800 btn btn-tall md:w-auto hover:bg-gray-600 sm:mr-2">
+                        Annuler
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div> --}}
+
+
+
     @livewireScripts
 </body>
 
