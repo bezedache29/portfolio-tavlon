@@ -365,6 +365,68 @@
             </p>
         </div>
     </div>
+
+    <div class="relative z-10 text-gray-600" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex items-end justify-center min-h-full p-4 text-center sm:items-center sm:p-0">
+                <div
+                    class="relative overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-lg">
+                    <div class="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                <h3 class="mb-8 text-3xl font-medium leading-6 text-center text-gray-900"
+                                    id="modal-title">Formulaire
+                                    de
+                                    contact</h3>
+                                <form method="POST" action="#" class="mt-2">
+                                    <div class="mb-5">
+                                        <label for="email" class="mb-1 block text-base font-medium text-[#07074D]">
+                                            Adresse e-mail :
+                                        </label>
+                                        <input type="email" name="email" id="email"
+                                            placeholder="example@domain.com"
+                                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md" />
+                                    </div>
+                                    <div class="mb-5">
+                                        <label for="object" class="mb-1 block text-base font-medium text-[#07074D]">
+                                            Objet :
+                                        </label>
+                                        <input type="text" name="object" id="object"
+                                            placeholder="Objet du message"
+                                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md" />
+                                    </div>
+                                    <div class="mb-5">
+                                        <label for="message" class="mb-1 block text-base font-medium text-[#07074D]">
+                                            Message :
+                                        </label>
+                                        <textarea
+                                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md"
+                                            id="message" name="message" rows="5" cols="33" placeholder="Votre message ici..."></textarea>
+                                    </div>
+                                    <p class="text-sm text-gray-700">J'accepte ce site à conserver mes données
+                                        personnelles transmises via ce formulaire. Aucun exploitation commerciale ne
+                                        sera faite des données conservées.</p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 bg-gray-50 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="submit"
+                            class="mb-4 whitespace-no-wrap bg-indigo-600 w-100 btn btn-tall md:w-auto hover:bg-indigo-500 sm:ml-2">
+                            Envoyer
+                        </button>
+                        <button type="button"
+                            class="w-full mb-4 whitespace-no-wrap bg-gray-800 btn btn-tall md:w-auto hover:bg-gray-600 sm:mr-2">Annuler</button>
+                        {{-- <button type="submit"
+                            class="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button> --}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     @livewireScripts
 </body>
 
