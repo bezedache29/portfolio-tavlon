@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compétences et portfolio de Sébastien Joublot - Monteur Vidéaste Davinci Resolve">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Sébastien Joublot">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://portfolio-ee.bezedache.com" />
+    <meta property="og:locale" content="fr" />
+    <meta property="og:title" content="Portfolio de Sébastien Joublot" />
+    <meta property="og:description"
+        content="Compétences et Portfolio de Sébastien Joublot - Monteur Vidéaste Davinci Resolve">
+    <meta property="og:image" content="https://portfolio-ee.bezedache.com/storage/images/portfolio-ee.png">
+
+    <!-- Twitter Card  -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://portfolio-ee.bezedache.com">
+    <meta name="twitter:title" content="Portfolio de Sébastien Joublot">
+    <meta name="twitter:description"
+        content="Compétences et Portfolio de Sébastien Joublot - Monteur Vidéaste Davinci Resolve">
+    <meta name="twitter:image" content="https://portfolio-ee.bezedache.com/storage/images/portfolio-ee.png">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Portfolio de Sébastien Joublot</title>
     @vite('resources/css/app.css')
     @livewireStyles
     <script async defer data-domain="open.michelegera.dev" src="https://plausible.io/js/plausible.js"></script>
