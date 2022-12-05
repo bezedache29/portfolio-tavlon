@@ -42,7 +42,7 @@ class ContactController extends Controller
 
         Mail::create($request->all());
 
-        $user = User::where('email', 'test@gmail.com')->first();
+        $user = User::where('email', 'exodeeffects@gmail.com')->first();
 
         $user->notify(new ContactNotification($request->all()));
 

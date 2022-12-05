@@ -39,9 +39,17 @@ class UserCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('name');
-        CRUD::column('email');
-        CRUD::column('password');
+        $this->crud->addColumn([
+            'label' => 'Prénom & Nom',
+            'type' => 'text',
+            'name' => 'name'
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Adresse email',
+            'type' => 'text',
+            'name' => 'email'
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -79,6 +87,6 @@ class UserCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        $this->setupCreateOperation();
+        // $this->setupCreateOperation();
     }
 }
