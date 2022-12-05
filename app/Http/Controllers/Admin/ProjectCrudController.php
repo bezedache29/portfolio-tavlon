@@ -55,11 +55,6 @@ class ProjectCrudController extends CrudController
             'name' => 'url',
         ]);
         $this->crud->addColumn([
-            'label' => 'Date',
-            'type' => 'date',
-            'name' => 'date',
-        ]);
-        $this->crud->addColumn([
             'label' => 'Catégories',
             'type' => 'select',
             'name' => 'categories',
@@ -101,11 +96,6 @@ class ProjectCrudController extends CrudController
             'name' => 'url',
             'type' => 'text',
             'label' => "Lien de la vidéo du projet"
-        ]);
-        $this->crud->addField([
-            'name' => 'date',
-            'type' => 'date',
-            'label' => "Date du projet"
         ]);
         // $this->crud->removeField('categories'); // remove the original field
         $this->crud->addField([
@@ -152,11 +142,6 @@ class ProjectCrudController extends CrudController
             'label' => 'Lien de la vidéo',
             'type' => 'textarea',
             'name' => 'url',
-        ]);
-        $this->crud->addColumn([
-            'label' => 'Date',
-            'type' => 'date',
-            'name' => 'date',
         ]);
         $this->crud->addColumn([
             'label' => 'Catégories',

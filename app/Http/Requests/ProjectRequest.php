@@ -28,7 +28,6 @@ class ProjectRequest extends FormRequest
             'name' => 'required|min:5|max:255|string',
             'description' => 'required|min:10|max:500|string',
             'url' => 'required|min:5|max:255|string',
-            'date' => 'required|date',
         ];
     }
 
@@ -64,8 +63,6 @@ class ProjectRequest extends FormRequest
             'url.string' => 'Le lien de la vidéo du projet doit être une chaine de caractères',
             'url.min' => 'Le lien de la vidéo du projet doit faire :min caratères minimum',
             'url.max' => 'Le lien de la vidéo du projet doit faire :max caratères maximum',
-            'date.required' => 'La date du projet est obligatoire',
-            'date.date' => 'La date du projet doit être une date valide',
         ];
     }
 }

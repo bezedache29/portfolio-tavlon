@@ -119,6 +119,23 @@
 
         <div class="mb-16 border-b border-gray-800">
             <h2 class="mb-2 title sm:text-4xl md:text-5xl">
+                Mes compétences
+            </h2>
+            <div class="flex flex-wrap justify-center mb-20">
+                @foreach ($skills as $skill)
+                    <div class="w-full mt-10 sm:px-10 sm:w-1/2">
+                        <p class="mb-2">{{ $skill->name }} - {{ $skill->per_cent }}%</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                            <div class="bg-indigo-500 h-2.5 rounded-full" style="width: {{ $skill->per_cent }}%"></div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
+
+        <div class="mb-16 border-b border-gray-800">
+            <h2 class="mb-2 title sm:text-4xl md:text-5xl">
                 Mes réalisations
             </h2>
             <p class="mx-auto mb-20 intro sm:max-w-xl">

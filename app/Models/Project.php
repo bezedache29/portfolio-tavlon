@@ -17,7 +17,6 @@ class Project extends Model
         'name',
         'description',
         'url',
-        'date'
     ];
 
     /**

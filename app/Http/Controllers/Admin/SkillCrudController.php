@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\SkillRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class UserCrudController
+ * Class SkillCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class UserCrudController extends CrudController
+class SkillCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class UserCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\User::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/user');
-        CRUD::setEntityNameStrings('utilisateur', 'utilisateurs');
+        CRUD::setModel(\App\Models\Skill::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/skill');
+        CRUD::setEntityNameStrings('compétence', 'compétences');
     }
 
     /**
@@ -39,9 +39,16 @@ class UserCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('name');
-        CRUD::column('email');
-        CRUD::column('password');
+        $this->crud->addColumn([
+            'label' => 'Nom',
+            'type' => 'text',
+            'name' => 'name'
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Pourcentage',
+            'type' => 'number',
+            'name' => 'per_cent'
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -58,11 +65,20 @@ class UserCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(UserRequest::class);
+        CRUD::setValidation(SkillRequest::class);
 
-        CRUD::field('name');
-        CRUD::field('email');
-        CRUD::field('password');
+        $this->crud->setRequiredFields(['name', 'per_cent']);
+
+        $this->crud->addField([
+            'name' => 'name',
+            'type' => 'text',
+            'label' => "Nom de la compétence"
+        ]);
+        $this->crud->addField([
+            'name' => 'per_cent',
+            'type' => 'number',
+            'label' => "Poucentage de la compétence"
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

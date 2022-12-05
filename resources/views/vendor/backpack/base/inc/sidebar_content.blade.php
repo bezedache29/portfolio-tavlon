@@ -10,3 +10,6 @@
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('user') }}"><i class="nav-icon la la-users-cog"></i>
         Utilisateurs</a></li>
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('skill') }}"><i
+            class="nav-icon la la-hand-point-right "></i>Compétences</a></li>
