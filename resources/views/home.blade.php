@@ -153,7 +153,7 @@
                 Mes réseaux sociaux
             </h2>
 
-            <div class="flex flex-row justify-center mb-4 -ml-4 -mr-4">
+            <div class="flex flex-col items-center mb-4 -ml-4 -mr-4 sm:justify-center sm:flex-row">
                 <a href="https://www.youtube.com/channel/UC5tWpMmzIcfA7PPzh3I2l-w"
                     class="p-4 text-indigo-700 hover:text-indigo-400">
                     <svg class="fill-current" width="80" height="80" version="1.1" id="Capa_1"
@@ -482,71 +482,6 @@
                 </a>2022 - Tous droits réservés</span>
         </p>
     </div>
-
-    {{-- <div role="dialog" aria-labelledby="modal1_label" aria-modal="true" tabindex="0" x-show="isModalOpen"
-        x-on:click="isModalOpen = false; $refs.modal1_button.focus()" x-on:click.away="isModalOpen = false"
-        class="fixed top-0 left-0 flex items-center justify-center w-full h-screen">
-        <div aria-hidden="true" class="absolute top-0 left-0 w-full h-screen transition duration-300 bg-black"
-            :class="{ 'opacity-80': isModalOpen, 'opacity-0': !isModalOpen }" x-show="isModalOpen"
-            x-transition:leave="delay-150"></div>
-        <div data-modal-document x-on:click.stop="" x-show="isModalOpen"
-            x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="transform scale-50 opacity-0"
-            x-transition:enter-end="transform scale-100 opacity-100"
-            x-transition:leave="transition ease-out duration-300"
-            x-transition:leave-start="transform scale-100 opacity-100"
-            x-transition:leave-end="transform scale-50 opacity-0"
-            class="z-10 flex flex-col overflow-hidden bg-white rounded-lg shadow-lg lg:w-3/5 sm:w-4/5">
-            <div class="p-6 border-b">
-                <h2 id="modal1_label" x-ref="modal1_label"
-                    class="text-3xl font-medium leading-6 text-center text-gray-800">
-                    Formulaire de contact</h2>
-            </div>
-            <form method="POST" action="{{ route('contact.send-email') }}" class="py-6">
-                @csrf
-                <div class="px-6 mt-2">
-                    <div class="mb-5">
-                        <label for="email" class="mb-1 block text-base font-medium text-[#07074D]">
-                            Adresse e-mail :
-                        </label>
-                        <input type="email" name="email" id="email" placeholder="example@domain.com"
-                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md" />
-                    </div>
-                    <div class="mb-5">
-                        <label for="object" class="mb-1 block text-base font-medium text-[#07074D]">
-                            Objet :
-                        </label>
-                        <input type="text" name="object" id="object" placeholder="Objet du message"
-                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="mb-1 block text-base font-medium text-[#07074D]">
-                            Message :
-                        </label>
-                        <textarea
-                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#5658dd] focus:shadow-md"
-                            id="message" name="message" rows="5" cols="33" placeholder="Votre message ici..."></textarea>
-                    </div>
-                    <p class="mb-3 text-sm italic text-gray-700">J'accepte ce site à conserver mes données
-                        personnelles transmises via ce formulaire. Aucun exploitation commerciale ne
-                        sera faite des données conservées.</p>
-                </div>
-                <div class="px-4 pt-5 border-t bg-gray-50 sm:flex sm:flex-row-reverse sm:px-6">
-                    <button type="submit"
-                        class="w-full whitespace-no-wrap bg-indigo-600 w-100 btn btn-tall md:w-auto hover:bg-indigo-500 sm:ml-2">
-                        Envoyer
-                    </button>
-                    <button x-on:click="isModalOpen = false" type="button"
-                        class="w-full whitespace-no-wrap bg-gray-800 btn btn-tall md:w-auto hover:bg-gray-600 sm:mr-2">
-                        Annuler
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div> --}}
-
-
-
     @livewireScripts
 </body>
 
