@@ -27,7 +27,8 @@
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio de Sébastien Joublot</title>
-    @vite('resources/css/app.css')
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="{{ mix('js/app.js') }}" defer></script>
     @livewireStyles
     <script async defer data-domain="open.michelegera.dev" src="https://plausible.io/js/plausible.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
