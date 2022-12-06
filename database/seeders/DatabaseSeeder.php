@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Skill;
 use App\Models\Project;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
@@ -24,39 +25,56 @@ class DatabaseSeeder extends Seeder
             'email' => 'exodeeffects@gmail.com',
         ]);
 
-        $c1 = Category::create([
-            'name' => 'Catégorie 1'
+        Skill::create([
+            'name' => 'Montage davinci',
+            'per_cent' => 80
         ]);
-        $c2 = Category::create([
-            'name' => 'Catégorie 2'
+        Skill::create([
+            'name' => 'Etalonnage',
+            'per_cent' => 54
         ]);
-        $c3 = Category::create([
-            'name' => 'Catégorie 3'
+        Skill::create([
+            'name' => 'Fairlight',
+            'per_cent' => 45
         ]);
-
-        $p1 = Project::factory()->create([
-            'name' => 'Projet 1',
-            'url' => 'https://www.youtube.com/embed/CyDuqsZyGPg',
-        ]);
-
-        $p2 = Project::factory()->create([
-            'name' => 'Projet 2',
-            'url' => 'https://www.youtube.com/embed/ORmfCFiw6yY',
+        Skill::create([
+            'name' => 'Découpage',
+            'per_cent' => 100
         ]);
 
-        $p3 = Project::factory()->create([
-            'name' => 'Projet 3',
-            'url' => 'https://www.youtube.com/embed/_ldF4VlyN0o',
-        ]);
+        // $c1 = Category::create([
+        //     'name' => 'Catégorie 1'
+        // ]);
+        // $c2 = Category::create([
+        //     'name' => 'Catégorie 2'
+        // ]);
+        // $c3 = Category::create([
+        //     'name' => 'Catégorie 3'
+        // ]);
 
-        $p4 = Project::factory()->create([
-            'name' => 'Projet 4',
-            'url' => 'https://www.youtube.com/embed/1houOeXgIyk',
-        ]);
+        // $p1 = Project::factory()->create([
+        //     'name' => 'Projet 1',
+        //     'url' => 'https://www.youtube.com/embed/CyDuqsZyGPg',
+        // ]);
 
-        $p5 = Project::factory()->create([
-            'name' => 'Projet 5',
-            'url' => 'https://www.youtube.com/embed/WQK5TnNVXaw',
-        ]);
+        // $p2 = Project::factory()->create([
+        //     'name' => 'Projet 2',
+        //     'url' => 'https://www.youtube.com/embed/ORmfCFiw6yY',
+        // ]);
+
+        // $p3 = Project::factory()->create([
+        //     'name' => 'Projet 3',
+        //     'url' => 'https://www.youtube.com/embed/_ldF4VlyN0o',
+        // ]);
+
+        // $p4 = Project::factory()->create([
+        //     'name' => 'Projet 4',
+        //     'url' => 'https://www.youtube.com/embed/1houOeXgIyk',
+        // ]);
+
+        // $p5 = Project::factory()->create([
+        //     'name' => 'Projet 5',
+        //     'url' => 'https://www.youtube.com/embed/WQK5TnNVXaw',
+        // ]);
     }
 }
